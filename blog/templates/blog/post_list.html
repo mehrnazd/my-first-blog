@@ -1,19 +1,34 @@
+{% load static %}
 <html>
     <head>
         <title>Meri's Blog</title>
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
     <body>
-        <div>
-            <h1><a href="/">Mehrnaz Blog</a></h1>
-        </div>
-
-        {% for post in posts %}
-            <div>
-                <p>published: {{post.published_date}}</p>
-                <h2><a href="">{{ post.title }}</a></h2>
-                <p>{{ post.text|linebreaksbr }}</p>
+        <header class="page-header">
+            <div class="container">
+                <h1><a href="/">Mehrnaz Blog</a></h1>
             </div>
-        {% endfor %}  
+        </header>
+
+        <main class="container">
+            <div class="row">
+                <div class="col">
+                    {% for post in posts %}
+                        <article class="post">
+                            <time class="date">
+                                {{ post.published_date }}
+                            </time>
+                            <h2><a href="">{{ post.title }}</a></h2>
+                            <p>{{ post.text|linebreaksbr }}</p>
+                        </article>
+                    {% endfor %}
+                </div>
+            </div>
+        </main> 
 
     </body>
 </html>
