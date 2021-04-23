@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 from django.shortcuts import render, get_object_or_404
-=======
 from django.shortcuts import render, get_object_or_404, redirect
->>>>>>> 606aa0bcd8e734b91ddba640e91f45ef7e99ed44
 from django.utils import timezone
 from .models import Post
 from .forms import PostForm
@@ -15,9 +12,6 @@ def post_list(request):
 def post_detail(request,pk):
     post = get_object_or_404(Post,pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
-<<<<<<< HEAD
-=======
-
 def post_new(request):
     if request.method == "POST":
         form=PostForm(request.POST)
@@ -44,4 +38,4 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
->>>>>>> 606aa0bcd8e734b91ddba640e91f45ef7e99ed44
+
